@@ -18,15 +18,33 @@ class _MyAppState extends State<MyApp> {
   final _questions = const <Map<String, dynamic>>[
     {
       'questionText': 'What\'s your favorite color?',
-      'answers': ['Black', 'Red', 'Green', 'White', 'Yellow'],
+      'answers': [
+        {'text': 'Black', 'score': 10},
+        {'text': 'Red', 'score': 5},
+        {'text': 'Green', 'score': 4},
+        {'text': 'White', 'score': 1},
+        {'text': 'Yellow', 'score': 20},
+      ],
     },
     {
       'questionText': 'What\'s your favorite animal?',
-      'answers': ['Cat', 'Rabbit', 'Snake', 'Elephant', 'Lion']
+      'answers': [
+        {'text': 'Cat', 'score': 4},
+        {'text': 'Rabbit', 'score': 10},
+        {'text': 'Snake', 'score': 1},
+        {'text': 'Elephant', 'score': 2},
+        {'text': 'Lion', 'score': 2},
+      ]
     },
     {
       'questionText': 'What\'s your favorite sports?',
-      'answers': ['Soccer', 'Baseball', 'Badminton', 'Tennis', 'Hockey']
+      'answers': [
+        {'text': 'Soccer', 'score': 7},
+        {'text': 'Baseball', 'score': 5},
+        {'text': 'Badminton', 'score': 20},
+        {'text': 'Tennis', 'score': 7},
+        {'text': 'Hockey', 'score': 6},
+      ]
     },
   ];
 
@@ -44,7 +62,11 @@ class _MyAppState extends State<MyApp> {
           title: const Text('My First App'),
         ),
         body: _questionIndex < _questions.length
-            ? Quiz(answerQuestion: _answerQuestion, questions: _questions, questionIndex: _questionIndex,)
+            ? Quiz(
+                answerQuestion: _answerQuestion,
+                questions: _questions,
+                questionIndex: _questionIndex,
+              )
             : const Center(
                 child: Text('You did it!'),
               ),

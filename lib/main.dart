@@ -15,6 +15,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+  var _totalScore = 0;
+
   final _questions = const <Map<String, dynamic>>[
     {
       'questionText': 'What\'s your favorite color?',
@@ -48,7 +50,9 @@ class _MyAppState extends State<MyApp> {
     },
   ];
 
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
+    _totalScore += score;
+
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
@@ -67,8 +71,8 @@ class _MyAppState extends State<MyApp> {
                 questions: _questions,
                 questionIndex: _questionIndex,
               )
-            : const Center(
-                child: Text('You did it!'),
+            : Center(
+                child: Text(_totalScore.toString()),
               ),
       ),
     );
